@@ -2,9 +2,11 @@
 
 Allow the scene view camera to use X / Y or X / Z
 
-Basically, for a 2.5D project I needed to use 2D physics but with a camera with perspective (think [Don't Starve](https://store.steampowered.com/app/219740/Dont_Starve/) or [Cult of the Lamb](https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/)). The issue is that Unity's 2D physics cannot be changed from the X/Y axis, so instead of having the plane on the X / Z axis, I needed it to be on the X / Y, which made for some awkard camera movement inside the editor.
+Basically, for a 2.5D project I needed to use 2D physics but with a camera with perspective (think [Don't Starve](https://store.steampowered.com/app/219740/Dont_Starve/) or [Cult of the Lamb](https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/)). The issue is that Unity's 2D physics cannot be changed from the X / Y axis, so instead of having the plane on the X / Z axis, I needed it to be on the X / Y, which made for some awkard camera movement inside the editor.
 
 This tools fix this issue by allowing you to toggle between the two mode easily.
+
+In the end, whichever axis points up don't matter, the math is the same.
 
 ## Usage
 
