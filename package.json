@@ -1,0 +1,17 @@
+{
+  "name": "jd.boiv.in.scene-view-align",
+  "version": "1.0.0",
+  "displayName": "Scene View Align",
+  "description": "Allow the scene view camera to use X / Y or X / Z",
+  "dependencies": {
+    
+ },
+ "keywords": [
+    "utility", "editor"
+  ],
+  "author": {
+    "name": "Jean-Denis Boivin",
+    "email": "jd@boiv.in",
+    "url": "https://jd.boiv.in"
+  }
+}
