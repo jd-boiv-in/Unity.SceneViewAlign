@@ -28,5 +28,5 @@ Add the dependency to your `manifest.json`
 
 I simply made a UPM package for easy integration into any unity project, see those links for the original code.
 
-Akulist's [Forum Thread](https://forum.unity.com/threads/change-scene-view-camera-behaviour.649624/)
-FreyaHolmer's [Gist](https://gist.github.com/FreyaHolmer/cca9d07a306fb357c7ab9cc82574fabd)
+- Akulist's [Forum Thread](https://forum.unity.com/threads/change-scene-view-camera-behaviour.649624/)
+- FreyaHolmer's [Gist](https://gist.github.com/FreyaHolmer/cca9d07a306fb357c7ab9cc82574fabd)
