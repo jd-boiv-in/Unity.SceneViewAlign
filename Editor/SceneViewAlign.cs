@@ -12,6 +12,7 @@
 // Unity's original: https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/SceneView/SceneViewMotion.cs
 
 using UnityEditor;
+using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 namespace UnityEditor
@@ -27,7 +28,7 @@ namespace UnityEditor
 
         static SceneViewZAlign() => SceneView.duringSceneGui += OnSceneGUI;
 
-        private static Event _event;
+        private static bool _shortcutOverride;
         
         static void OnSceneGUI(SceneView view)
         {
@@ -52,13 +53,17 @@ namespace UnityEditor
                         s_ZoomSpeed = Mathf.Max(Mathf.Abs(s_StartZoom), .3f);
                         s_TotalMotion = 0;
 
-                        // Disable right-click, personally I've never had any use for it...
-                        // Better than having the right-click always appears...
-                        e.Use();
+                        // Super dumb, but whenever we right-click and only look around, the context menu would appear
+                        // So we overwrite it so you need to hold ALT for it to appear instead.
+                        if (!_shortcutOverride)
+                        {
+                            _shortcutOverride = true;
+                            var keyCombination = new KeyCombination(KeyCode.Mouse1, ShortcutModifiers.Alt);
+                            ShortcutManager.instance.RebindShortcut("Scene View/Menu", new ShortcutBinding(keyCombination));
+                        }
                     }
 
                     UpdateYawSign(view);
-
                     break;
                 case EventType.MouseDrag:
                     if (alt == false && rmb)
@@ -112,8 +117,6 @@ namespace UnityEditor
             view.rotation = GetMouseRotation(view, e);
             view.pivot = camPos + view.rotation * Vector3.forward * view.cameraDistance;
             e.Use();
-            
-            Debug.Log($"LOL");
         }
 
         static void OrbitCameraBehavior(SceneView view, Event e)
