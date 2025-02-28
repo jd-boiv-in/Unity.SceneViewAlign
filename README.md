@@ -26,6 +26,10 @@ Add the dependency to your `manifest.json`
 }
 ```
 
+## Warning
+
+Due to an annoying bug, if you are simply "looking" by holding the right-click button, the context menu would appears. I disabled that functionality instead. Personally, I've never used the right-click context menu in the scene view. If you want to re-enable it, [comment this line](https://github.com/starburst997/Unity.SceneViewAlign/blob/main/Editor/SceneViewAlign.cs#L57).
+
 ## Authors
 
 I simply made a UPM package for easy integration into any unity project, see those links for the original code.

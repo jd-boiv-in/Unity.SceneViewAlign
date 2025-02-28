@@ -14,7 +14,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace JD.SceneViewAlign
+namespace UnityEditor
 {
     [InitializeOnLoad]
     public static class SceneViewZAlign
@@ -27,8 +27,12 @@ namespace JD.SceneViewAlign
 
         static SceneViewZAlign() => SceneView.duringSceneGui += OnSceneGUI;
 
+        private static Event _event;
+        
         static void OnSceneGUI(SceneView view)
         {
+            if (view.in2DMode) return;
+            
             DrawToggle(view);
 
             if (!useZAxis || view.isRotationLocked)
@@ -47,6 +51,10 @@ namespace JD.SceneViewAlign
                         s_StartZoom = view.size;
                         s_ZoomSpeed = Mathf.Max(Mathf.Abs(s_StartZoom), .3f);
                         s_TotalMotion = 0;
+
+                        // Disable right-click, personally I've never had any use for it...
+                        // Better than having the right-click always appears...
+                        e.Use();
                     }
 
                     UpdateYawSign(view);
@@ -104,6 +112,8 @@ namespace JD.SceneViewAlign
             view.rotation = GetMouseRotation(view, e);
             view.pivot = camPos + view.rotation * Vector3.forward * view.cameraDistance;
             e.Use();
+            
+            Debug.Log($"LOL");
         }
 
         static void OrbitCameraBehavior(SceneView view, Event e)
