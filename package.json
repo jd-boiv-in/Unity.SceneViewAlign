@@ -4,9 +4,9 @@
   "displayName": "Scene View Align",
   "description": "Allow the scene view camera to use X / Y or X / Z",
   "dependencies": {
-    
- },
- "keywords": [
+  
+  },
+  "keywords": [
     "utility", "editor"
   ],
   "author": {
