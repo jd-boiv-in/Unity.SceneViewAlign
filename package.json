@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "displayName": "Scene View Align",
   "description": "Allow the scene view camera to use X / Y or X / Z",
+  "license": "MIT",
   "dependencies": {
   
   },
