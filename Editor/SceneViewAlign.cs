@@ -11,6 +11,7 @@
 // Akulist's original: https://forum.unity.com/threads/change-scene-view-camera-behaviour.649624/
 // Unity's original: https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/SceneView/SceneViewMotion.cs
 
+using System;
 using UnityEditor;
 using UnityEditor.ShortcutManagement;
 using UnityEngine;
@@ -58,8 +59,16 @@ namespace UnityEditor
                         if (!_shortcutOverride)
                         {
                             _shortcutOverride = true;
-                            var keyCombination = new KeyCombination(KeyCode.Mouse1, ShortcutModifiers.Alt);
-                            ShortcutManager.instance.RebindShortcut("Scene View/Menu", new ShortcutBinding(keyCombination));
+                            try
+                            {
+                                var keyCombination = new KeyCombination(KeyCode.Mouse1, ShortcutModifiers.Alt);
+                                ShortcutManager.instance.RebindShortcut("Scene View/Menu",
+                                    new ShortcutBinding(keyCombination));
+                            }
+                            catch (Exception)
+                            {
+                                // Nothing
+                            }
                         }
                     }
 
